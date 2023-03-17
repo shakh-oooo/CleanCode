@@ -14,8 +14,8 @@ class Repository(private val storageInterface: StorageInterface) : RepositoryInt
 
     }
 
-    private fun mapToStorage(param: ModelSaveName): ModelStorageSaveName {
-        return ModelStorageSaveName(sname = param.name, slast = param.last)
+    private fun mapToStorage(modelSaveName: ModelSaveName): ModelStorageSaveName {
+        return ModelStorageSaveName(storageSaveName = modelSaveName.saveName, saveLastName = modelSaveName.saveLastName)
     }
 
     override fun getName(): ModelGetName {
@@ -23,7 +23,7 @@ class Repository(private val storageInterface: StorageInterface) : RepositoryInt
         return mapToDomain(user)
     }
 
-    private fun mapToDomain(modelgetname: ModelStorageGetName): ModelGetName {
-        return ModelGetName(name = modelgetname.gname, last = modelgetname.glast)
+    private fun mapToDomain(modelStorageGetName: ModelStorageGetName): ModelGetName {
+        return ModelGetName(getName = modelStorageGetName.storageGetName, getLastName = modelStorageGetName.storageGetLastName)
     }
 }

@@ -6,5 +6,4 @@ object Const {
     const val lastName="lastName"
     const val defaultName="defaultName"
 
-
 }

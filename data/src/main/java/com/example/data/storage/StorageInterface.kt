@@ -5,6 +5,6 @@ import com.example.data.storage.models.ModelStorageSaveName
 
 
 interface StorageInterface {
-    fun storageSave(paramStorage: ModelStorageSaveName)
+    fun storageSave(modelStorageSaveName: ModelStorageSaveName)
     fun storageGet():ModelStorageGetName
 }
