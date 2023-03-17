@@ -7,16 +7,14 @@ import com.example.data.storage.models.ModelStorageGetName
 import com.example.data.storage.models.ModelStorageSaveName
 
 
-class SharedPreferens(context: Context):StorageInterface{
-
-
+class SharedPreferences(context: Context):StorageInterface{
 
     private val shared =context.getSharedPreferences(Const.sharedPref,Context.MODE_PRIVATE)
 
 
-    override fun storageSave(paramStorage: ModelStorageSaveName) {
-        shared.edit().putString(Const.firstName,paramStorage.sname).apply()
-        shared.edit().putString(Const.lastName,paramStorage.slast).apply()
+    override fun storageSave(modelStorageSaveName: ModelStorageSaveName) {
+        shared.edit().putString(Const.firstName,modelStorageSaveName.storageSaveName).apply()
+        shared.edit().putString(Const.lastName,modelStorageSaveName.saveLastName).apply()
     }
 
     override fun storageGet(): ModelStorageGetName {

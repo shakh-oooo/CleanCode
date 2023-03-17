@@ -8,21 +8,25 @@ import com.example.domain.models.ModelSaveName
 import com.example.domain.usecase.GetUseCase
 import com.example.domain.usecase.SaveUseCase
 
-class MainViewModel(private val useCaseget: GetUseCase,private val useCasesave: SaveUseCase ):ViewModel() {
+class MainViewModel(
+    private val useCaseGet: GetUseCase,
+    private val useCaseSave: SaveUseCase) : ViewModel() {
 
-    private val retern = MutableLiveData<String>()
-    val ret : LiveData<String> = retern
+    private val mutableLV = MutableLiveData<String>()
+    val liveData: LiveData<String>
+    get() = mutableLV
 
 
-    fun saveee(a:String,b:String){
-        val par = ModelSaveName(name = a, last = b)
-        val bar = useCasesave.savesavename(saveparam = par)
-        retern.value = bar.toString()
+    fun savaMV(name: String, lastName: String) {
+        val param = ModelSaveName(saveName = name, saveLastName = lastName)
+        val bar = useCaseSave.saveNameUseCase(saveParam = param)
+        mutableLV.value = bar.toString()
 
     }
-    fun getttt(){
-        val a : ModelGetName =useCaseget.getgetnamefun()
-        val c = "${a.name} ${a.last}"
-        retern.value = c
+
+    fun getMV() {
+        val modelName: ModelGetName = useCaseGet.getNameUseCase()
+        val getAll = "${modelName.getName} ${modelName.getLastName}"
+        mutableLV.value = getAll
     }
 }

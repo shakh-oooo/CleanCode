@@ -5,5 +5,5 @@ import com.example.domain.models.ModelSaveName
 
 interface RepositoryInterface {
     fun saveName(saveNameParamInterface: ModelSaveName)
-    fun getName():ModelGetName
+    fun getName(): ModelGetName
 }

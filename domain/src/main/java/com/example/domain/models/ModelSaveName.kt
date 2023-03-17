@@ -1,3 +1,3 @@
 package com.example.domain.models
 
-class ModelSaveName(val name: String,val last : String){}
+class ModelSaveName(val saveName: String, val saveLastName: String) {}
